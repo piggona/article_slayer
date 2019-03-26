@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap-grid.css" rel="stylesheet">
+    <title>article slayer</title>
+</head>
+
+<body>
+    <section class="detail">
+        <%= require('html-loader!./layout/nav.html') %>
+        <%= require('html-loader!./layout/nav-simple.html') %>
+        <div class="w">
+            <div class="content with-nav">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-9 search-div">
+                                <input class="search-panel" id="simple-search" placeholder="请输入搜索内容" />
+                        </div>
+                        <div class="col-md-3">
+                                <button class="btn search-btn" id="search-btn">搜索</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="es-content">
+
+                </div>
+                <div class="row">
+                    <button class="btn choose-btn" id="forward-btn">前一页</button>
+                    <button class="btn choose-btn" id="backward-btn">后一页</button>
+                </div>
+            </div>
+        </div>
+        <%= require('html-loader!./layout/footer.html') %>
+    </section>
+</body>
+
+</html>
