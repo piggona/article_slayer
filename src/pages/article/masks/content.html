@@ -3,27 +3,27 @@
     <div class="user-block">
         <div class="detail-title" style="width: 70%;">
             <span class="username" style="width: 50%">
-                <a class="patent-name" href="#">{{title}}</a>
+                <input id="{{ id }}" class="patent-name" href="#" placeholder="{{title}}" value="{{title}}"></input>
 
             </span>
             <br>
-            <span class="description" style="width: 50%; float:right;">发布时间 -
-                {{ create_time }}</span>
+            
         </div>
-
+        <span class="description" style="width: 100%;">发布时间 -
+                {{ create_time }}</span>
 
         <div class="card-body">
-            <div>
-                <div class="detail-text" style="width: 40rem;">
+            <div class="row">
+                <div class="detail-text col-md-9">
                     <p>
-                        {{summary}}
+                        <textarea id="text{{ id }}" class="article_summary" href="#" value="{{summary}}" cols="45" rows="5">{{summary}}</textarea>
                     </p>
                     <a href="{{ url }}" target="_blank" id="full-text">原文链接...</a>
                 </div>
 
-                <div>
+                <div class="col-md-3">
                     <!--<div style="display: inline-block; float: right;">-->
-                    <div class="apply display-bottom" style="float :right">
+                    <div class="apply display-bottom">
                         <strong><i class="fa fa-anchor mr-1"></i>来源媒体</strong>
                         <br><br>
 

@@ -24,21 +24,51 @@ var _display = {
     },
     bindEvent: function(){
         let _this = this
+        let search_isclick = true;
+        let choose_isclick = true;
+        let forward_isclick = true;
+        let backward_isclick = true;
         $('#search-btn').click(function(){
-            _this.query = $('#simple-search').val()
-            _this.get_data();
+            if(search_isclick){
+                search_isclick = false
+                _this.query = $('#simple-search').val()
+                _this.get_data();
+            }
+            setTimeout(function(){ 
+                search_isclick = true;
+            }, 500);  
         });
         $('#choose-btn').click(function(){
             // _this.searchSubmit();
         });
         $('#forward-btn').click(function(){
-            _this.forward();
+            if(forward_isclick){
+                forward_isclick = false
+                _this.forward();
+            }
+            setTimeout(function(){ 
+                forward_isclick = true;
+            }, 500);
         });
         $('#backward-btn').click(function(){
-            _this.backward();
+            if(backward_isclick){
+                backward_isclick = false
+                _this.backward();
+            }
+            setTimeout(function(){ 
+                backward_isclick = true;
+            }, 500);
+            
         });
         $("body").delegate(".choose-btn","click",function(e){
-            _this.clic($(this).attr("id"))
+            if(choose_isclick){
+                choose_isclick = false
+                _this.clic($(this).attr("id"))
+            }
+            setTimeout(function(){ 
+                choose_isclick = true;
+            }, 500);
+            
         })
     },
     clic: function(id){
@@ -52,15 +82,17 @@ var _display = {
             this.from_page -= 1;
         }
         this.get_data();
-        this.bindEvent();
+        // this.bindEvent();
     },
     backward: function() {
         this.from_page += 1;
         this.get_data();
-        this.bindEvent();
+        // this.bindEvent();
     },
     push_data: function(id){
         let result = this.results[id]
+        result["title"] = $('input#'+id).val()
+        result["summary"] = $('#text'+id).text()
         _article.request({
             //发data到服务器地址
             url: '/api/_push',
