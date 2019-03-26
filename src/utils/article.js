@@ -8,7 +8,7 @@ var _article = {
     *后端请求
     */
     request: function (param) {
-        let urlinfo = "http://127.0.0.1:5000";
+        let urlinfo = "http://172.17.12.138:5000";
         urlinfo = urlinfo + param.url;
         $.ajax({
             type: param.method || 'post',
