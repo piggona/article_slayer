@@ -64,6 +64,9 @@ var _display = {
             if(choose_isclick){
                 choose_isclick = false
                 _this.clic($(this).attr("id"))
+                $(this).attr("disabled",true)
+                $(this).attr("class","btn disabled-btn")
+                $(this).text("已选择")
             }
             setTimeout(function(){ 
                 choose_isclick = true;
@@ -91,8 +94,12 @@ var _display = {
     },
     push_data: function(id){
         let result = this.results[id]
+        result["title"] = ""
+        result["summary"] = ""
         result["title"] = $('input#'+id).val()
-        result["summary"] = $('#text'+id).text()
+        result["summary"] = $('#text'+id).val()
+        result["time"] = $('#time'+id).val()
+        console.log(result)
         _article.request({
             //发data到服务器地址
             url: '/api/_push',

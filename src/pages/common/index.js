@@ -1,4 +1,7 @@
 'use strict'
+$(function () {
+    
+});
 
 require('./layout.css')
 require('./card/index.js')

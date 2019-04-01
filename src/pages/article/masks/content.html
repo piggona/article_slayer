@@ -45,7 +45,10 @@
                     {{tags}}
                 </div>
             </div>
-            <button class="btn choose-btn" id="{{ id }}",value="{{ id }}">选择</button>
+            <div class="row">
+                <button class="btn choose-btn" id="{{ id }}",value="{{ id }}">选择</button>
+                <input type="datetime-local" id="time{{ id }}" />
+            </div>
             <div style="clear: both"></div>
         </div>
     </div>

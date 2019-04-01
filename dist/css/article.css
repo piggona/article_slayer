@@ -54,5 +54,8 @@
     height: 38rem;
     overflow: auto;
 }
+.btn.disabled-btn {
+    background-color: darkgrey;
+}
 
 /*# sourceMappingURL=article.css.map*/
